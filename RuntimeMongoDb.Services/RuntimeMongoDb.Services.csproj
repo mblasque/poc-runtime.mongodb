@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RuntimeMongoDb.Domain\RuntimeMongoDb.Domain.csproj" />
+    <ProjectReference Include="..\RuntimeMongoDb.Infra\RuntimeMongoDb.Infra.csproj" />
+  </ItemGroup>
+
+</Project>

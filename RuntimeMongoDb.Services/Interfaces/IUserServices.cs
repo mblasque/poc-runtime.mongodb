@@ -6,7 +6,7 @@ namespace RuntimeMongoDb.Services.Interfaces
 {
     public interface IUserServices
     {
-        Task Create(User user);
+        Task<User> Create(User user);
 
         Task<User> GetById(int id);
 

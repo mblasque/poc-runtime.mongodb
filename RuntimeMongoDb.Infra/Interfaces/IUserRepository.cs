@@ -6,7 +6,7 @@ namespace RuntimeMongoDb.Infra.Interfaces
 {
     public interface IUserRepository
     {
-        Task Create(User user);
+        Task<User> Create(User user);
 
         Task<User> GetById(int id);
 

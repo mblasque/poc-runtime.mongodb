@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using RuntimeMongoDb.Domain.Entities;
 using RuntimeMongoDb.Infra.Interfaces;
+using MongoDB.Bson;
 
 namespace RuntimeMongoDb.Infra.Repositories
 {
@@ -17,9 +18,10 @@ namespace RuntimeMongoDb.Infra.Repositories
 
         private IMongoCollection<User> GetCollection() => _mongoDbContext.MongoDatabase.GetCollection<User>("users");
 
-        public async Task Create(User user)
+        public async Task<User> Create(User user)
         {
             await GetCollection().InsertOneAsync(user);
+            return user;
         }
 
         public async Task<List<User>> GetAll()
@@ -29,9 +31,11 @@ namespace RuntimeMongoDb.Infra.Repositories
             return result;
         }
 
-        public Task<User> GetById(int id)
+        public async Task<User> GetById(int id)
         {
-            throw new System.NotImplementedException();
+            var result = await GetCollection().FindAsync(f => f.Id == id);
+
+            return result.FirstOrDefault();
         }
     }
 }

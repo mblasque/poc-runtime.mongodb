@@ -22,7 +22,6 @@ namespace RuntimeMongoDb.WebApi.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await _userServices.GetAll();
-
             return Ok(result);
         }
 
@@ -30,7 +29,14 @@ namespace RuntimeMongoDb.WebApi.Controllers
         [Route("Create")]
         public async Task<IActionResult> Create([FromBody]User user)
         {
-            await _userServices.Create(user);
+            return Ok(await _userServices.Create(new User(user.Name)));
+        }
+
+        [HttpGet]
+        [Route("GetById/{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var user = await _userServices.GetById(id);
             return Ok(user);
         }
     }

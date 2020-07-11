@@ -24,7 +24,7 @@ namespace RuntimeMongoDb.Infra
 
             var asag = MongoDatabase.GetCollection<User>("users");
 
-            asag.InsertOne(new User("admin", "admin@admin.com", "admin", "admin"));
+            asag.InsertOne(new User("admin"));
         }
     }
 }

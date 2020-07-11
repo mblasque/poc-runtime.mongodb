@@ -15,9 +15,9 @@ namespace RuntimeMongoDb.Services.Implementations
             _userRepository = userRepository;
         }
 
-        public async Task Create(User user)
+        public async Task<User> Create(User user)
         {
-            await _userRepository.Create(user);
+            return await _userRepository.Create(user);
         }
 
         public async Task<List<User>> GetAll()
@@ -25,9 +25,9 @@ namespace RuntimeMongoDb.Services.Implementations
             return await _userRepository.GetAll();
         }
 
-        public Task<User> GetById(int id)
+        public async Task<User> GetById(int id)
         {
-            throw new System.NotImplementedException();
+            return await _userRepository.GetById(id);
         }
     }
 }

@@ -22,9 +22,9 @@ namespace RuntimeMongoDb.Infra
 
             MongoMap.RegisterClasses();
 
-            var asag = MongoDatabase.GetCollection<User>("users");
+            var coll = MongoDatabase.GetCollection<User>("users");
 
-            asag.InsertOne(new User("admin"));
+            coll.InsertOne(new User("admin"));
         }
     }
 }
